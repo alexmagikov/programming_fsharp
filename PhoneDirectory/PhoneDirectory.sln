@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "PhoneDirectory", "PhoneDirectory\PhoneDirectory.fsproj", "{DBC3E682-3670-4C7E-B2A0-88E21862462F}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "PhoneDirectory.test", "PhoneDirectory.test\PhoneDirectory.test.fsproj", "{EF0FBC19-68DB-4CF9-B77E-386D981E7605}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DBC3E682-3670-4C7E-B2A0-88E21862462F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBC3E682-3670-4C7E-B2A0-88E21862462F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBC3E682-3670-4C7E-B2A0-88E21862462F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBC3E682-3670-4C7E-B2A0-88E21862462F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF0FBC19-68DB-4CF9-B77E-386D981E7605}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF0FBC19-68DB-4CF9-B77E-386D981E7605}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF0FBC19-68DB-4CF9-B77E-386D981E7605}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF0FBC19-68DB-4CF9-B77E-386D981E7605}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

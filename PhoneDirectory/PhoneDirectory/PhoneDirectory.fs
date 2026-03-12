@@ -21,10 +21,10 @@ let addEntry name phone book = {
 }
     
 let searchPhoneByName name (book: PhoneBook)= 
-    Map.tryFind name book.ByPhone
+    Map.tryFind name book.ByName
     
 let searchNameByPhone phone (book: PhoneBook)=
-    Map.tryFind phone book.ByName
+    Map.tryFind phone book.ByPhone
     
 let getAllEntries book=
     book.ByName |> Map.toList

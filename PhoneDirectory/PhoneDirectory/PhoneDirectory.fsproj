@@ -6,11 +6,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="PointFreeMult.fs" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <PackageReference Include="FsCheck" Version="3.3.2" />
+        <Compile Include="Serialization.fs" />
+        <Compile Include="PhoneDirectory.fs" />
+        <Compile Include="Program.fs" />
     </ItemGroup>
 
 </Project>

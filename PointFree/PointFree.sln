@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "PointFree", "PointFree\PointFree.fsproj", "{BFE0F3DA-0574-410A-8EF7-279E71CF5BCA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BFE0F3DA-0574-410A-8EF7-279E71CF5BCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFE0F3DA-0574-410A-8EF7-279E71CF5BCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFE0F3DA-0574-410A-8EF7-279E71CF5BCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFE0F3DA-0574-410A-8EF7-279E71CF5BCA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -6,11 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="PointFreeMult.fs" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <PackageReference Include="FsCheck" Version="3.3.2" />
+        <Compile Include="ParenthesisSeq.fs" />
     </ItemGroup>
 
 </Project>

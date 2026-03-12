@@ -21,8 +21,3 @@ open ParenthesisSeq.ParenthesisSeq
 [<TestCase("gesgesg(serer[gre]{dwef}fwe)f", true)>]
 let ``isBalanced tests`` (input: string) (expected: bool) =
     Assert.That(isBalanced input, Is.EqualTo(expected))
- 
- 
- 
- 
-  

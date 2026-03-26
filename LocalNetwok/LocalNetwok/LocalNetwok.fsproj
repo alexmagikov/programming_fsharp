@@ -6,8 +6,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="Serialization.fs" />
-        <Compile Include="PhoneDirectory.fs" />
+        <Compile Include="IOS.fs" />
+        <Compile Include="Computer.fs" />
+        <Compile Include="OS.fs" />
+        <Compile Include="IRandomGenerator.fs" />
+        <Compile Include="SystemRandom.fs" />
+        <Compile Include="Network.fs" />
         <Compile Include="Program.fs" />
     </ItemGroup>
 

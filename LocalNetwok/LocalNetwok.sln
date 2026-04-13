@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "LocalNetwok", "LocalNetwok\LocalNetwok.fsproj", "{BBDAE543-30DA-4EE3-8531-A59CF66C12CA}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "LocalNetwork.Test", "LocalNetwork.Test\LocalNetwork.Test.fsproj", "{BD4A40C9-D7C6-4B84-BAA1-9868738D000C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BBDAE543-30DA-4EE3-8531-A59CF66C12CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBDAE543-30DA-4EE3-8531-A59CF66C12CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBDAE543-30DA-4EE3-8531-A59CF66C12CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBDAE543-30DA-4EE3-8531-A59CF66C12CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD4A40C9-D7C6-4B84-BAA1-9868738D000C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD4A40C9-D7C6-4B84-BAA1-9868738D000C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD4A40C9-D7C6-4B84-BAA1-9868738D000C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD4A40C9-D7C6-4B84-BAA1-9868738D000C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

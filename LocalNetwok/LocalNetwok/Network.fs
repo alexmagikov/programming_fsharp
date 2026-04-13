@@ -44,7 +44,9 @@ type Network(adjacencyMatrix : bool[,], computers : Computer[], random : IRandom
                      if value < probab then
                          toInfect.Add(j)
                       
-         let uniqueToInfect = toInfect |> Seq.distinct |> Seq.toArray
+         let uniqueToInfect = toInfect
+                              |> Seq.distinct
+                              |> Seq.toArray
          
          for i in uniqueToInfect do
              computers[i].IsInfected <- true

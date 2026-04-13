@@ -12,7 +12,6 @@
         <Compile Include="IRandomGenerator.fs" />
         <Compile Include="SystemRandom.fs" />
         <Compile Include="Network.fs" />
-        <Compile Include="Program.fs" />
     </ItemGroup>
 
 </Project>

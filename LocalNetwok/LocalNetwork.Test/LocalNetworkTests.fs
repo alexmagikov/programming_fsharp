@@ -14,14 +14,6 @@ type TestOS(prob : float) =
 type ConstantGenerator(value : float) =
     interface IRandomGenerator with
         member this.NextDouble() = value
-        
-type SequenceRandomGenerator(values : float list) =
-    let mutable index = 0
-    interface IRandomGenerator with
-        member this.NextDouble() =
-            let v = values[index]
-            index <- (index + 1) % values.Length
-            v
 
 [<Test>]
 let ``BFS virus with probability 1`` () =

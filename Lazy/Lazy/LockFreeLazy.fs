@@ -1,18 +1,22 @@
 module Lazy.LockFreeLazy
 
+open System.Threading
+open Lazy.ILazy
+
 type LockFreeLazy<'a>(supplier: unit -> 'a) =
-    let value = ref None
+    let mutable value: 'a option = None
     
     interface ILazy<'a> with
         member this.Get() =
-            match System.Threading.Volatile.Read(ref !value) with
+            match value with
             | Some v -> v
             | None ->
                 let result = supplier()
                 let newValue = Some result
-                System.Threading.Interlocked.CompareExchange(value, newValue, None)
-                |> function
-                    | Some v -> v
-                    | None -> result
+                let original = Interlocked.CompareExchange(&value, newValue, None)
+                match original with
+                | Some v -> v
+                | None -> result
                     
- 
+ let lockFreeLazy (supplier: unit -> 'a) : ILazy<'a> =
+    LockFreeLazy<'a>(supplier) :> ILazy<'a>

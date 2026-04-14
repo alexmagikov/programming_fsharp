@@ -1,7 +1,9 @@
 module Lazy.MultiThreadedLazy
 
+open Lazy.ILazy
+
 type MultiThreadedLazy<'a>(supplier: unit -> 'a) =
-    let mutalbe value: 'a option = None
+    let mutable value: 'a option = None
     let lockObj = obj()
     
     interface ILazy<'a> with
@@ -16,3 +18,6 @@ type MultiThreadedLazy<'a>(supplier: unit -> 'a) =
                         let result = supplier()
                         value <- Some result
                         result)
+                
+let multiThreadedLazy (supplier: unit -> 'a) : ILazy<'a> =
+    MultiThreadedLazy<'a>(supplier) :> ILazy<'a>

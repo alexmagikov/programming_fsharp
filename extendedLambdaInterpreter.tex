@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage{graphicx}
+
+\begin{document}
+
+\section{EBNF}
+
+\begin{verbatim}
+program       ::= {definition} application
+definition    ::= "let" variable "=" application "\n"
+application   ::= atom app_tail
+app_tail      ::= atom app_tail | ε  
+atom          ::= lambda | variable | "(" application ")" 
+lambda        ::= "\" varList "." expression
+varList       ::= variable {variable}
+variable      ::= letter {letter | digit | "_"}
+letter        ::= "a".."z" | "A".."Z"
+digit         ::= "0".."9"
+\end{verbatim}
+
+\end{document}

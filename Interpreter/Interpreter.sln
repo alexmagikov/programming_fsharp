@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Interpreter", "Interpreter\Interpreter.fsproj", "{79DA00A0-0566-483C-9204-A7E456E73A38}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Interpreter.test", "Interpreter.test\Interpreter.test.fsproj", "{AF5E0284-71C7-413C-A3B7-26B202C09CFA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{79DA00A0-0566-483C-9204-A7E456E73A38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79DA00A0-0566-483C-9204-A7E456E73A38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79DA00A0-0566-483C-9204-A7E456E73A38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79DA00A0-0566-483C-9204-A7E456E73A38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF5E0284-71C7-413C-A3B7-26B202C09CFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF5E0284-71C7-413C-A3B7-26B202C09CFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF5E0284-71C7-413C-A3B7-26B202C09CFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF5E0284-71C7-413C-A3B7-26B202C09CFA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

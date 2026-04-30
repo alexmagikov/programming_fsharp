@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <TargetFramework>net10.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="demo1.fs" />
+        <Compile Include="numerics.fs" />
+        <Compile Include="demo2.fs" />
+        <Compile Include="demo3.fs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Deedle" Version="7.0.0" />
+      <PackageReference Include="FSharp.Charting" Version="2.1.0" />
+      <PackageReference Include="FsLab" Version="1.1.6" />
+      <PackageReference Include="MathNet.Numerics" Version="6.0.0-beta2" />
+    </ItemGroup>
+
+</Project>

@@ -8,7 +8,7 @@ type LockFreeLazy<'a>(supplier: unit -> 'a) =
     
     interface ILazy<'a> with
         member this.Get() =
-            match value with
+            match Volatile.Read(&value) with
             | Some v -> v
             | None ->
                 let result = supplier()

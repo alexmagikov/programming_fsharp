@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <TargetFramework>net10.0</TargetFramework>
+        <RootNamespace>FirstHomework</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="Factorial.fs" />
+        <Compile Include="DegreeRow.fs" />
+        <Compile Include="SearchNumber.fs" />
+        <Compile Include="ReverseList.fs" />
+        <Compile Include="CalculateFibb.fs" />
+    </ItemGroup>
+
+</Project>

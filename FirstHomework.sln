@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FirstHomework", "FirstHomework\FirstHomework.fsproj", "{7AE8566E-393E-4A56-BD4C-462BE3CB02F2}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FirstHomework.Test", "FirstHomework.Test\FirstHomework.Test.fsproj", "{796EAE55-86C4-4BD6-8993-39F9200BDFD5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7AE8566E-393E-4A56-BD4C-462BE3CB02F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AE8566E-393E-4A56-BD4C-462BE3CB02F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AE8566E-393E-4A56-BD4C-462BE3CB02F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AE8566E-393E-4A56-BD4C-462BE3CB02F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{796EAE55-86C4-4BD6-8993-39F9200BDFD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{796EAE55-86C4-4BD6-8993-39F9200BDFD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{796EAE55-86C4-4BD6-8993-39F9200BDFD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{796EAE55-86C4-4BD6-8993-39F9200BDFD5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

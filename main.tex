@@ -1,0 +1,31 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{Normalization}
+
+\begin{document}
+
+\maketitle
+
+S = \lambda x.\lambda y.\lambda z. x\ z\ (y\ z)
+
+K = \lambda x.\lambda y. x
+
+I = \lambda x. x
+
+S\ K\ K
+&= ((\lambda x.\lambda y.\lambda z. x\ z\ (y\ z))\ K)\ K \\
+
+&\to_\beta (\lambda y.\lambda z. K\ z\ (y\ z))\ K \\
+
+&\to_\beta \lambda z. K\ z\ (K\ z) \\
+
+&= \lambda z. ((\lambda x.\lambda y.x)\ z)\ (K\ z) \\
+
+&\to_\beta \lambda z. (\lambda y.z)\ (K\ z) \\
+
+&\to_\beta \lambda z.z \\
+
+&= I.
+
+\end{document}

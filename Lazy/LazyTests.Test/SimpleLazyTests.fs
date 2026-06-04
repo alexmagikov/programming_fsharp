@@ -6,10 +6,7 @@ open NUnit.Framework
 
 
 [<Test>]
-let ``Simple: caching`` () = checkCaching singleThreadedLazy
+let ``Simple: caching`` () = checkCaching SingleThreadedLazy
 
 [<Test>]
-let ``Simple: side effect`` () = checkSideEffect singleThreadedLazy
-
-[<Test>]
-let ``Simple: independence`` () = checkIndependence singleThreadedLazy
+let ``Simple: reference caching`` () = checkReferenceCaching SingleThreadedLazy

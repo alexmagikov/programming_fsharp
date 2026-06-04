@@ -5,16 +5,13 @@ open LazyTests.LazyTests
 open NUnit.Framework
 
 [<Test>]
-let ``ThreadSafe: caching`` () = checkCaching multiThreadedLazy
+let ``ThreadSafe: caching`` () = checkCaching MultiThreadedLazy
 
 [<Test>]
-let ``ThreadSafe: side effect`` () = checkSideEffect multiThreadedLazy
+let ``ThreadSafe: reference caching`` () = checkReferenceCaching MultiThreadedLazy
 
 [<Test>]
-let ``ThreadSafe: independence`` () = checkIndependence multiThreadedLazy
+let ``ThreadSafe: multi-thread consistency`` () = checkMultiThreadedConsistency MultiThreadedLazy
 
 [<Test>]
-let ``ThreadSafe: multi-thread consistency`` () = checkMultiThreadedConsistency multiThreadedLazy
-
-[<Test>]
-let ``ThreadSafe: multi-thread count`` () = checkMultiThreadedCount multiThreadedLazy false
+let ``ThreadSafe: multi-thread count`` () = checkMultiThreadedCount MultiThreadedLazy false

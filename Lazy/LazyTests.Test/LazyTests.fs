@@ -1,53 +1,84 @@
 module LazyTests.LazyTests
 
+open System
 open System.Threading
 open FsUnit
 open Lazy.ILazy
+open Lazy.LockFreeLazy
+open Lazy.MultiThreadedLazy
+open Lazy.SimpleLazy
 open NUnit.Framework
 
-// Check cashing
-let checkCaching (create: (unit -> int) -> ILazy<int>) =
+type ReferenceValue = { Id: Guid }
+
+let checkCaching (create: (unit -> Guid) -> #ILazy<Guid>) =
     let mutable counter = 0
-    let lazyVal = create (fun () -> counter <- counter + 1; 42)
-    lazyVal.Get() |> should equal 42
-    lazyVal.Get() |> should equal 42
+    let expected = Guid.NewGuid()
+    let lazyVal =
+        create (fun () ->
+            Interlocked.Increment(&counter) |> ignore
+            expected)
+
+    lazyVal.Get() |> should equal expected
+    lazyVal.Get() |> should equal expected
     counter |> should equal 1
 
-// Check side effects for create
-let checkSideEffect (create: (unit -> string) -> ILazy<string>) =
-    let mutable side = 0
-    let lazyVal = create (fun () -> side <- side + 1; "hello")
-    lazyVal.Get() |> should equal "hello"
-    lazyVal.Get() |> should equal "hello"
-    side |> should equal 1
+let checkReferenceCaching (create: (unit -> ReferenceValue) -> #ILazy<ReferenceValue>) =
+    let mutable counter = 0
+    let expected = { Id = Guid.NewGuid() }
+    let lazyVal =
+        create (fun () ->
+            Interlocked.Increment(&counter) |> ignore
+            expected)
 
-// Check independence for int
-let checkIndependence (create: (unit -> int) -> ILazy<int>) =
-    let lazy1 = create (fun () -> 1)
-    let lazy2 = create (fun () -> 2)
-    lazy1.Get() |> should equal 1
-    lazy2.Get() |> should equal 2
+    let first = lazyVal.Get()
+    let second = lazyVal.Get()
 
-//  MultiThreaded checking
-let checkMultiThreadedConsistency (create: (unit -> 'a) -> ILazy<'a>) =
-    let rnd = System.Random()
-    let lazyVal = create (fun () -> rnd.Next())
-    let nThreads = 10
+    Assert.That(first, Is.SameAs(expected))
+    Assert.That(second, Is.SameAs(expected))
+    Assert.That(second, Is.SameAs(first))
+    counter |> should equal 1
+
+let checkMultiThreadedConsistency (create: (unit -> Guid) -> #ILazy<Guid>) =
+    let expected = Guid.NewGuid()
+    let lazyVal = create (fun () -> expected)
+    let nThreads = 16
+    let startGate = new ManualResetEventSlim(false)
     let results = Array.zeroCreate nThreads
-    let threads = Array.init nThreads (fun i -> Thread(fun () -> results[i] <- lazyVal.Get()))
-    threads |> Array.iter (fun t -> t.Start())
-    threads |> Array.iter (fun t -> t.Join())
-    let first = results[0]
-    results |> Array.iter (fun r -> r |> should equal first)
 
-let checkMultiThreadedCount (create: (unit -> int) -> ILazy<int>) allowMultiple =
-    let mutable callCount = 0
-    let lazyVal = create (fun () -> Interlocked.Increment(&callCount) |> ignore; 100)
-    let nThreads = 10
-    let threads = Array.init nThreads (fun _ -> Thread(fun () -> lazyVal.Get() |> ignore))
+    let threads =
+        Array.init nThreads (fun i ->
+            Thread(fun () ->
+                startGate.Wait()
+                results[i] <- lazyVal.Get()))
+
     threads |> Array.iter (fun t -> t.Start())
+    startGate.Set()
     threads |> Array.iter (fun t -> t.Join())
+    results |> Array.iter (fun result -> result |> should equal expected)
+
+let checkMultiThreadedCount (create: (unit -> int) -> #ILazy<int>) allowMultiple =
+    let mutable callCount = 0
+    let lazyVal =
+        create (fun () ->
+            Thread.Sleep(10)
+            Interlocked.Increment(&callCount))
+
+    let nThreads = 32
+    let startGate = new ManualResetEventSlim(false)
+
+    let threads =
+        Array.init nThreads (fun _ ->
+            Thread(fun () ->
+                startGate.Wait()
+                lazyVal.Get() |> ignore))
+
+    threads |> Array.iter (fun t -> t.Start())
+    startGate.Set()
+    threads |> Array.iter (fun t -> t.Join())
+
     if allowMultiple then
         Assert.That(callCount, Is.GreaterThanOrEqualTo(1))
+        Assert.That(callCount, Is.LessThanOrEqualTo(nThreads))
     else
         callCount |> should equal 1

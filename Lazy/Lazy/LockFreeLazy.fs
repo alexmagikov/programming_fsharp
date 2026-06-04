@@ -4,7 +4,7 @@ open System.Threading
 open Lazy.ILazy
 
 type LockFreeLazy<'a>(supplier: unit -> 'a) =
-    let mutable value: 'a option = None
+    let mutable value = None
     
     interface ILazy<'a> with
         member this.Get() =
@@ -17,6 +17,3 @@ type LockFreeLazy<'a>(supplier: unit -> 'a) =
                 match original with
                 | Some v -> v
                 | None -> result
-                    
- let lockFreeLazy (supplier: unit -> 'a) : ILazy<'a> =
-    LockFreeLazy<'a>(supplier) :> ILazy<'a>

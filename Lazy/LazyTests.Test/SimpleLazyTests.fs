@@ -10,3 +10,6 @@ let ``Simple: caching`` () = checkCaching SingleThreadedLazy
 
 [<Test>]
 let ``Simple: reference caching`` () = checkReferenceCaching SingleThreadedLazy
+
+[<Test>]
+let ``Simple: struct caching`` () = checkStructCaching SingleThreadedLazy

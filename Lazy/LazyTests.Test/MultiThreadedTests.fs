@@ -14,4 +14,4 @@ let ``ThreadSafe: reference caching`` () = checkReferenceCaching MultiThreadedLa
 let ``ThreadSafe: multi-thread consistency`` () = checkMultiThreadedConsistency MultiThreadedLazy
 
 [<Test>]
-let ``ThreadSafe: multi-thread count`` () = checkMultiThreadedCount MultiThreadedLazy false
+let ``ThreadSafe: multi-thread count`` () = checkMultiThreadedCountFor1Thread MultiThreadedLazy

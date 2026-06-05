@@ -16,4 +16,4 @@ let ``LockFree: reference caching`` () = checkReferenceCaching LockFreeLazy
 let ``LockFree: multi-thread consistency`` () = checkMultiThreadedConsistency LockFreeLazy
 
 [<Test>]
-let ``LockFree: multi-thread count (allowed multiple)`` () = checkMultiThreadedCount LockFreeLazy true
+let ``LockFree: multi-thread count (allowed multiple)`` () = checkMultiThreadedCountForMultiThreads LockFreeLazy
